@@ -19,7 +19,7 @@ const Form = () => {
     const [postFormData, { isSuccess, isError }] = usePostFormDataMutation();
     const [datas, setDatas] = useState([]);
     const [selectedDate, setSelectedDate] = useState(null);
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit, reset } = useForm();
 
 
     useEffect(() => {
@@ -79,14 +79,14 @@ const Form = () => {
                                             <Select
                                                 label="Style"
                                                 name='style'
-                                                {...register("style")}
+                                                value=''
+                                                {...register("style", { required: true})}
                                             >
                                                 {
                                                     style?.map((sty, idx) => <MenuItem key={idx} defaultValue="" value={sty}>{sty}</MenuItem>)
                                                 }
 
                                             </Select>
-
                                         </FormControl>
                                     </Box>
                                 </Grid>
@@ -97,6 +97,7 @@ const Form = () => {
                                             <Select
                                                 label="PO NO"
                                                 name='poNo'
+                                                value=''
                                                 {...register("poNo")}
                                             >
                                                 {
@@ -114,6 +115,7 @@ const Form = () => {
                                             <Select
                                                 label="Country"
                                                 name='country'
+                                                value=''
                                                 {...register("country")}
                                             >
                                                 {
@@ -130,6 +132,7 @@ const Form = () => {
                                             <InputLabel required>Color</InputLabel>
                                             <Select
                                                 name='color'
+                                                value=''
                                                 {...register("color")}
                                             >
                                                 {
@@ -147,6 +150,7 @@ const Form = () => {
                                             <Select
                                                 label="Line"
                                                 name='line'
+                                                value=''
                                                 {...register("line")}
                                             >
                                                 {
@@ -196,6 +200,7 @@ const Form = () => {
                                             <Select
                                                 label='Size'
                                                 name='size'
+                                                value=''
                                                 {...register("size")}
                                             >
                                                 {
